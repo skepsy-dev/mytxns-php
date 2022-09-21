@@ -14,6 +14,10 @@ if (isset($_SESSION["user_id"])) {
     $user = $result->fetch_assoc();
 }
 
+if (!isset($user)) :
+    header("location: login.php");
+    exit;
+endif;
 ?>
 
 <!DOCTYPE html>
@@ -48,13 +52,6 @@ if (isset($_SESSION["user_id"])) {
 
     <br><br>
 
-    <?php if (!isset($user)) :
-        header("location: login.php");
-        exit;
-    ?>
-
-    <?php endif; ?>
-
     <h2><?php echo $user["user_name"] ?>'s Projects</h2>
     <a href='create_proj.php'><img class='newIcon' src='images/icons/new_icon.png' alt='New Icon'></a>
     <br>
@@ -75,13 +72,16 @@ if (isset($_SESSION["user_id"])) {
 
         <tbody>
             <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $database = "mytxns";
-
-            // Create connection
-            $connection = new mysqli($servername, $username, $password, $database);
+            //Get Heroku ClearDB connection information
+            $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+            $cleardb_server = "us-cdbr-east-06.cleardb.net";
+            $cleardb_username = "b3260df89e9024";
+            $cleardb_password = "657e1282";
+            $cleardb_db = "heroku_17566dd1cdff3d3";
+            $active_group = 'default';
+            $query_builder = TRUE;
+            // Connect to DB
+            $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
             // Check connection
             if ($connection->connect_error) {
@@ -107,7 +107,7 @@ if (isset($_SESSION["user_id"])) {
                                 <td>$row[price]</td>
                                 <td><a href='$row[website]' target='_blank'><img class='webIcon' src='images/icons/weblink-icon.png' alt='Project Website Link'></a></td>
                                 <td><a href='$row[twitter]' target='_blank'><img class='twitIcon' src='images/logos/twitter-logo.png' alt='Project Twitter Link'></></a></td>
-                                <td><textarea rows='1' cols='20'>$row[note]</textarea></td>
+                                <td><textarea rows='1' cols='10'>$row[note]</textarea></td>
                                 <td>
                                     <a href='edit_proj.php?id=$row[id]'><img class='editIcon' src='images/icons/edit-icon.png' alt='Edit Icon'></a>
                                     <a href='delete_proj.php?id=$row[id]'><img class='editIcon' src='images/icons/delete_icon.png' alt='Delete Icon'></a>

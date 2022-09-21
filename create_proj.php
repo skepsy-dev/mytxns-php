@@ -1,11 +1,15 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "mytxns";
 
-// Create connection
-$connection = new mysqli($servername, $username, $password, $database);
+//Get Heroku ClearDB connection information
+$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server = "us-cdbr-east-06.cleardb.net";
+$cleardb_username = "b3260df89e9024";
+$cleardb_password = "657e1282";
+$cleardb_db = "heroku_17566dd1cdff3d3";
+$active_group = 'default';
+$query_builder = TRUE;
+// Connect to DB
+$connection = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
 session_start();
 
@@ -13,7 +17,7 @@ if (isset($_SESSION["user_id"])) {
 
     $mysqli = require __DIR__ . "/database.php";
 
-    $sql = "SELECT * FROM users
+    $sql = "SELECT * FROM `users`
             WHERE id = {$_SESSION["user_id"]}";
 
     $result = $mysqli->query($sql);
@@ -47,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $note = $_POST["note"];
 
     do {
-        $sql = "INSERT INTO projects(user_id, date, project_name, status, hype, chain, price, website, twitter, note)" .
+        $sql = "INSERT INTO `projects`(user_id, date, project_name, status, hype, chain, price, website, twitter, note)" .
             "VALUES ('$user_id','$date','$project_name','$status','$hype','$chain','$price','$website','$twitter',' $note')";
         $result = $connection->query($sql);
 
@@ -109,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form class="cpForm" method="POST">
 
             <input class="" id="user_id" name="user_id" type="hidden" value="<?php echo $_SESSION["user_id"]; ?>">
-            <input class="" id="date" name="date" type="date" value="<?php echo $date; ?>" placeholder="Date...">
+            <input class="" id="date" name="date" type="date" value="<?php echo $date; ?>">
             <input class="" id="project_name" name="project_name" type="text" value="<?php echo $project_name; ?>" placeholder="Project Name...">
             <br>
             <select class="" id="status" name="status" value="<?php echo $status; ?>">

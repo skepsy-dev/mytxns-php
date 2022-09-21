@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $mysqli = require __DIR__ . "/database.php";
 
     $sql = sprintf(
-        "SELECT * FROM users
+        "SELECT * FROM `users`
                     WHERE email = '%s'",
         $mysqli->real_escape_string($_POST["email"])
     );
@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $user = $result->fetch_assoc();
 
-    if ($user) {
 
         if (password_verify($_POST["password"], $user["password_hash"])) {
 
@@ -29,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: index.php");
             exit;
         }
-    }
+    
 
     $is_invalid = true;
 }
@@ -49,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <h2>Login</h2>
 
     <?php if ($is_invalid) : ?>
-        <em>Invalid login</em>
+        <p>Invalid login</p>
     <?php endif; ?>
 
     <fieldset class="">
