@@ -17,33 +17,54 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user = $result->fetch_assoc();
 
 
-        if (password_verify($_POST["password"], $user["password_hash"])) {
+    if (password_verify($_POST["password"], $user["password_hash"])) {
 
-            session_start();
+        session_start();
 
-            session_regenerate_id();
+        session_regenerate_id();
 
-            $_SESSION["user_id"] = $user["id"];
+        $_SESSION["user_id"] = $user["id"];
 
-            header("Location: index.php");
-            exit;
-        }
-    
+        header("Location: index.php");
+        exit;
+    }
+
 
     $is_invalid = true;
 }
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Login</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MT | LOGIN</title>
+    <link rel="icon" type="image/icon type" href="images/logos/mt-logo-blk.png">
+    <link rel="stylesheet" type="text/css" href="style.css" crossorigin="anonymous">
 </head>
 
 <body>
+
+    <nav class="navBar">
+        <a href="index.php"><img class="navLogo" src="images/logos/mt-logo-white.png" alt="MyTxns Logo"></a>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="about.html" target="">About</a></li>
+                <li><a href="https://nanacalc.com/" target="_blank">Nana Calc</a></li>
+                <li><a href="signup.php">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <br><br>
 
     <h2>Login</h2>
 
@@ -51,12 +72,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <p>Invalid login</p>
     <?php endif; ?>
 
-    <fieldset class="">
+    <fieldset class="loginForm">
         <form method="post">
-            <input type="email" name="email" id="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>" placeholder="Enter email">
-            <input type="password" name="password" id="password" placeholder="Enter password">
-
-            <button>Log in</button>
+            <div>
+                <input type="email" name="email" id="email" value="<?= htmlspecialchars($_POST["email"] ?? "") ?>" placeholder="Enter Email">
+            </div>
+            <div>
+                <input type="password" name="password" id="password" placeholder="Enter Password">
+            </div>
+            <br>
+            <button class="" type="submit">Login</button>
         </form>
     </fieldset>
 </body>

@@ -10,7 +10,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 // Connect to DB
 $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-    
+
 $id = "";
 $date = "";
 $project_name = "";
@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         $result = $connection->query($sql);
 
         if (!$result) {
-            $errorMessage = "Invaild query: ". $connection->error;
+            $errorMessage = "Invaild query: " . $connection->error;
             break;
         }
 
@@ -79,10 +79,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         header("location: index.php");
         exit;
-
     } while (false);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,13 +91,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MT | ADD PROJECT</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>MT | EDIT PROJECT</title>
+    <link rel="icon" type="image/icon type" href="images/logos/mt-logo-blk.png">
+    <link rel="stylesheet" type="text/css" href="style.css" crossorigin="anonymous">
 </head>
 
 <body>
-    <h3>EDIT PROJECT</h3>
+
+    <nav class="navBar">
+        <a href="index.php"><img class="navLogo" src="images/logos/mt-logo-white.png" alt="MyTxns Logo"></a>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="index.php" target="">Projects</a></li>
+                <li><a href="https://nanacalc.com/" target="_blank">Nana Calc</a></li>
+                <li><a href="logout.php">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <br><br>
+
+    <h2 align="center">EDIT PROJECT</h2>
 
     <?php
     if (!empty($errorMessage)) {
@@ -114,37 +133,46 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
     ?>
 
-    <fieldset class="cpFieldset">
-        <form class="cpForm" method="POST">
-            <input id="id" name="id" type="hidden" value="<?php echo $id; ?>">
-            <input class="" id="date" name="date" type="date" value="<?php echo $date; ?>" placeholder="Date...">
-            <input class="" id="project_name" name="project_name" type="text" value="<?php echo $project_name; ?>" placeholder="Project Name...">
+    <fieldset class="loginForm">
+        <form class="loginForm" method="POST">
+            <div>
+                <input id="id" name="id" type="hidden" value="<?php echo $id; ?>">
+                <input class="" id="date" name="date" type="date" value="<?php echo $date; ?>" placeholder="Date...">
+                <input class="" id="project_name" name="project_name" type="text" value="<?php echo $project_name; ?>" placeholder="Project Name...">
+            </div>
             <br>
-            <select class="" id="status" name="status" value="<?php echo $status; ?>">
-                <option value="Whitelist">Whitelisted</option>
-                <option value="WL Pending">WL Pending</option>
-                <option value="Need WL">Need WL</option>
-            </select>
-            <select class="" id="hype" name="hype" value="<?php echo $hype; ?>">
-                <option value="Hyped">Hyped</option>
-                <option value="Something">Something</option>
-                <option value="Meh">Meh</option>
-            </select>
+            <div>
+                <select class="" id="status" name="status" value="<?php echo $status; ?>">
+                    <option value="Whitelist">Whitelisted</option>
+                    <option value="WL Pending">WL Pending</option>
+                    <option value="Need WL">Need WL</option>
+                </select>
+                <select class="" id="hype" name="hype" value="<?php echo $hype; ?>">
+                    <option value="Hyped">Hyped</option>
+                    <option value="Something">Something</option>
+                    <option value="Meh">Meh</option>
+                </select>
+            </div>
+            <div>
+                <select class="" id="chain" name="chain" value="<?php echo $chain; ?>">
+                    <option value="Eth">Eth</option>
+                    <option value="Poly">Poly</option>
+                    <option value="Sol">Sol</option>
+                    <option value="Near">Near</option>
+                </select>
+                <input class="createPrice" type="float" id="price" name="price" value="<?php echo $price; ?>" placeholder="Price">
+            </div>
             <br>
-            <select class="" id="chain" name="chain" value="<?php echo $chain; ?>">
-                <option value="Eth">Eth</option>
-                <option value="Poly">Poly</option>
-                <option value="Sol">Sol</option>
-                <option value="Near">Near</option>
-            </select>
-            <input class="" type="float" id="price" name="price" value="<?php echo $price; ?>" placeholder="Price">
+            <div>
+                <input class="" type="url" id="website" name="website" value="<?php echo $website; ?>" placeholder="Website url...">
+            </div>
+            <div>
+                <input class="" type="url" id="twitter" name="twitter" value="<?php echo $twitter; ?>" placeholder="Twitter url...">
+            </div>
             <br>
-            <input class="" type="url" id="website" name="website" value="<?php echo $website; ?>" placeholder="Website url...">
-            <br>
-            <input class="" type="url" id="twitter" name="twitter" value="<?php echo $twitter; ?>" placeholder="Twitter url...">
-            <br>
-            <textarea class="" type="text" id="note" name="note" value="<?php echo $note; ?>" rows="5" cols="30" placeholder="Notes | copy and pasta info..."><?php echo $note; ?></textarea>
-            <br>
+            <div>
+                <textarea class="" type="text" id="note" name="note" value="<?php echo $note; ?>" rows="5" cols="30" placeholder="Notes | copy and pasta info..."><?php echo $note; ?></textarea>
+            </div>
             <?php
             if (!empty($successMessage)) {
                 echo "

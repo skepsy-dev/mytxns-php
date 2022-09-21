@@ -35,7 +35,7 @@ endif;
 <body>
 
     <nav class="navBar">
-        <div><img class="navLogo" src="images/logos/mt-logo-white.png" alt="MyTxns Logo"></div>
+        <a href="index.php"><img class="navLogo" src="images/logos/mt-logo-white.png" alt="MyTxns Logo"></a>
         <a href="#" class="toggle-button">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -43,8 +43,8 @@ endif;
         </a>
         <div class="navbar-links">
             <ul>
-                <li><a href="index.php">MyTxns</a></li>
                 <li><a href="https://nanacalc.com/" target="_blank">Nana Calc</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="logout.php">Log Out</a></li>
             </ul>
         </div>
@@ -64,8 +64,8 @@ endif;
                 <th>HYPE</th>
                 <th>CHAIN</th>
                 <th>PRICE</th>
-                <th>WEBSITE</th>
-                <th>TWITTER</th>
+                <th><a><img class='webIcon' src='images/icons/link_icon_gray.png' alt='Website Link'></a></th>
+                <th><a><img class='webIcon' src='images/icons/twitter_grey_icon.png' alt='Website Link'></a></th>
                 <th>NOTES</th>
             </tr>
         </thead>

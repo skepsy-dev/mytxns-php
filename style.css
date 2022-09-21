@@ -45,8 +45,21 @@ p {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+a {
+    font-family: 'MyWebFont';
+    text-decoration: none;
+    color: white;
+    font-size: 10px;
+}
+
 td {
     font-family: 'MyWebFont';
+}
+
+button {
+    font-family: 'MyWebFont';
+    font-size: 10px;
+    background-color: #fffada;
 }
 
 /* start navbar */
@@ -140,58 +153,9 @@ td {
         display: flex ;
     }
 }
-
-
-
 /* end navbar */
 
 /* begin forms */
-
-.dataFieldset {
-    border: none;
-    max-width: fit-content;
-    min-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: space-between;
-}
-
-.dataForm {
-    background-color: #fffada;
-    border: 1px solid darkslategrey;
-    display: inline-block;
-    text-align: center;
-    padding-bottom: 5px;
-    max-width: fit-content;
-    min-width: 900px;
-}
-
-.dataForm ul {
-    text-decoration: none;
-}
-
-.close {}
-
-
-.submitFieldset {
-    border: none;
-    max-width: fit-content;
-    min-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.submitForm {
-    background-color: #fffada;
-    border: 1px solid darkslategrey;
-    display: inline-block;
-    margin-left: 3px;
-    margin-right: 1fr;
-    text-align: center;
-    padding-bottom: 10px;
-    max-width: fit-content;
-    min-width: 860px;
-}
 
 .date {
     max-width: 110px;
@@ -224,6 +188,10 @@ td {
     text-align: center;
 }
 
+/* end form */
+
+/* start icons */
+
 .webIcon {
     max-width: 15px;
     height: auto;
@@ -255,36 +223,14 @@ td {
     padding-right: 5px;
 }
 
-.submit {
-    margin-right: 5px;
-}
-
-.dropDownDiv {
-    float: right;
-    padding-right: 10px;
-    padding-top: 5px;
-
-}
-
-.website {}
-
-.twitter {}
-
-.discord {}
-
 .note {
     margin-top: 5px;
 }
 
-/* end form */
+/* end icons */
 
-.loginForm {
-    text-align: center;
-}
 
-.signUpForm {
-    text-align: center;
-}
+/* about page */
 
 .aboutFieldset {
     max-width: 500px;
@@ -307,6 +253,7 @@ td {
     height: auto;
 }
 
+/* end about page */
 
 /* new index.php */
 
@@ -339,4 +286,32 @@ td {
 
 .projc_delte_btn {
 
+}
+
+/* login page */
+
+.loginForm {
+    margin: auto;
+    max-width: 400px;
+    text-align: center;
+    border: none;
+}
+
+/* create page */
+
+.createPrice {
+    max-width: 70px;
+    background-color: #fffada;
+}
+
+input {
+    background-color: #fffada;
+}
+
+select {
+    background-color: #fffada; 
+}
+
+textarea {
+    background-color: #fffada;
 }

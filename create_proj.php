@@ -86,13 +86,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MT | ADD PROJECT</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>MT | NEW PROJECT</title>
+    <link rel="icon" type="image/icon type" href="images/logos/mt-logo-blk.png">
+    <link rel="stylesheet" type="text/css" href="style.css" crossorigin="anonymous">
 </head>
 
 <body>
-    <h3>NEW PROJECT</h3>
+
+    <nav class="navBar">
+        <a href="index.php"><img class="navLogo" src="images/logos/mt-logo-white.png" alt="MyTxns Logo"></a>
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="index.php" target="">Projects</a></li>
+                <li><a href="https://nanacalc.com/" target="_blank">Nana Calc</a></li>
+                <li><a href="logout.php">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <br><br>
+    <h2 align="center">ADD NEW PROJECT</h2>
 
     <?php
     if (!empty($errorMessage)) {
@@ -109,41 +127,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     ?>
 
-    <fieldset class="cpFieldset">
-        <form class="cpForm" method="POST">
-
-            <input class="" id="user_id" name="user_id" type="hidden" value="<?php echo $_SESSION["user_id"]; ?>">
-            <input class="" id="date" name="date" type="date" value="<?php echo $date; ?>">
-            <input class="" id="project_name" name="project_name" type="text" value="<?php echo $project_name; ?>" placeholder="Project Name...">
+    <fieldset class="loginForm">
+        <form class="" method="POST">
+            <div>
+                <input class="" id="user_id" name="user_id" type="hidden" value="<?php echo $_SESSION["user_id"]; ?>">
+                <input class="" id="date" name="date" type="date" value="<?php echo $date; ?>">
+                <input class="" id="project_name" name="project_name" type="text" value="<?php echo $project_name; ?>" placeholder="Project Name...">
+            </div>
             <br>
-            <select class="" id="status" name="status" value="<?php echo $status; ?>">
-                <option value="" selected hidden>Status...</option>
-                <option value="Whitelist">WL Secured</option>
-                <option value="wl Pending">WL Pending</option>
-                <option value="wl Needed">Need WL</option>
-            </select>
-            <select class="" id="hype" name="hype" value="<?php echo $hype; ?>">
-                <option value="" selected hidden>Hype...</option>
-                <option value="Hyped">Hyped</option>
-                <option value="Something">Something</option>
-                <option value="Meh">Meh</option>
-            </select>
+            <div>
+                <select class="" id="status" name="status" value="<?php echo $status; ?>">
+                    <option value="" selected hidden>Status...</option>
+                    <option value="Whitelist">WL Secured</option>
+                    <option value="wl Pending">WL Pending</option>
+                    <option value="wl Needed">Need WL</option>
+                </select>
+                <select class="" id="hype" name="hype" value="<?php echo $hype; ?>">
+                    <option value="" selected hidden>Hype...</option>
+                    <option value="Hyped">Hyped</option>
+                    <option value="Something">Something</option>
+                    <option value="Meh">Meh</option>
+                </select>
+            </div>
             <br>
-            <select class="" id="chain" name="chain" value="<?php echo $chain; ?>">
-                <option value="" selected hidden>Chain</option>
-                <option value="Eth">Eth</option>
-                <option value="Poly">Poly</option>
-                <option value="Sol">Sol</option>
-                <option value="Near">Near</option>
-            </select>
-            <input class="" type="float" id="price" name="price" value="<?php echo $price; ?>" placeholder="Price">
+            <div>
+                <select class="" id="chain" name="chain" value="<?php echo $chain; ?>">
+                    <option value="" selected hidden>Chain</option>
+                    <option value="Eth">Eth</option>
+                    <option value="Poly">Poly</option>
+                    <option value="Sol">Sol</option>
+                    <option value="Near">Near</option>
+                </select>
+                <input class="createPrice" type="float" id="price" name="price" value="<?php echo $price; ?>" placeholder="Price">
+            </div>
             <br>
-            <input class="" type="url" d="website" name="website" value="<?php echo $website; ?>" placeholder="Website url...">
+            <div>
+                <input class="" type="url" d="website" name="website" value="<?php echo $website; ?>" placeholder="Website url...">
+            </div>
+            <div>
+                <input class="" type="url" id="twitter" name="twitter" value="<?php echo $twitter; ?>" placeholder="Twitter url...">
+            </div>
             <br>
-            <input class="" type="url" id="twitter" name="twitter" value="<?php echo $twitter; ?>" placeholder="Twitter url...">
-            <br>
-            <textarea class="" id="note" name="note" value="<?php echo $note; ?>" rows="5" cols="30" placeholder="Notes | copy and pasta info..."></textarea>
-            <br>
+            <div>
+                <textarea class="" id="note" name="note" value="<?php echo $note; ?>" rows="5" cols="30" placeholder="Notes | copy and pasta info..."></textarea>
+            </div>
             <?php
             if (!empty($successMessage)) {
                 echo "
@@ -154,10 +181,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <button type='button' class='btn-close' data-bs-dismiss='alert'></button>
                             </div>
                         </div>
-                    </div>
-                ";
-            }
-            ?>
+                    </div>";
+            } ?>
+
+
             <button class="" type="submit">Add</button>
             <a class="" href="index.php" role="button">Cancel</a>
         </form>
