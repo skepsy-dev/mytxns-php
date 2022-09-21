@@ -4,7 +4,7 @@ if (isset($_GET["id"])) {
 
 
     //Get Heroku ClearDB connection information
-    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $cleardb_url = "mysql://b3260df89e9024:657e1282@us-cdbr-east-06.cleardb.net/heroku_17566dd1cdff3d3?reconnect=true";
     $cleardb_server = "us-cdbr-east-06.cleardb.net";
     $cleardb_username = "b3260df89e9024";
     $cleardb_password = "657e1282";
