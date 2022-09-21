@@ -1,0 +1,304 @@
+@font-face {
+    font-family: 'MyWebFont';
+    src: url('./font/LuloClean.woff2') format('woff2'),
+        url('./font/LuloClean.woff') format('woff');
+}
+
+div {
+    font-family: 'MyWebFont';
+}
+
+input {
+    font-family: 'MyWebFont';
+    font-size: 10px;
+    text-align: center;
+}
+
+select {
+    font-family: 'MyWebFont';
+    font-size: 10px;
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #222222;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'MyWebFont';
+    color: white;
+}
+
+li {
+    text-decoration: none;
+}
+
+ul {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* start navbar */
+
+.navBar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: none;
+    color: white;
+}
+
+.navLogo {
+    width: 50px;
+    height: 50px;
+    padding-left: 80%;
+    padding-top: 20%;
+}
+
+.navbar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    list-style: none;
+    text-size-adjust: 5px;
+}
+
+.navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    font-size: .77em;
+}
+
+.navbar-links li:hover {
+    background-color: #555;
+}
+
+.toggle-button {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px; 
+}
+
+@media (max-width: 800px) {
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+    
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links ul {
+        
+         flex-direction: column;
+        padding-top: 40px;
+    }
+
+    .navbar-links li {
+        text-align: right;
+    }
+
+    .navbar-links li a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex ;
+    }
+}
+
+
+
+/* end navbar */
+
+/* begin forms */
+
+.dataFieldset {
+    border: none;
+    max-width: fit-content;
+    min-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
+.dataForm {
+    background-color: #fffada;
+    border: 1px solid darkslategrey;
+    display: inline-block;
+    text-align: center;
+    padding-bottom: 5px;
+    max-width: fit-content;
+    min-width: 900px;
+}
+
+.dataForm ul {
+    text-decoration: none;
+}
+
+.close {}
+
+
+.submitFieldset {
+    border: none;
+    max-width: fit-content;
+    min-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.submitForm {
+    background-color: #fffada;
+    border: 1px solid darkslategrey;
+    display: inline-block;
+    margin-left: 3px;
+    margin-right: 1fr;
+    text-align: center;
+    padding-bottom: 10px;
+    max-width: fit-content;
+    min-width: 860px;
+}
+
+.date {
+    max-width: 110px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.name {
+    text-align: center;
+}
+
+.status {
+    max-width: 100px;
+}
+
+.hype {
+    max-width: 100px;
+}
+
+.chain {
+    max-width: 70px;
+}
+
+.dataChain {
+    max-width: 40px;
+}
+
+.price {
+    max-width: 50px;
+    text-align: center;
+}
+
+.webIcon {
+    max-width: 15px;
+    height: auto;
+    padding-left: 5px;
+}
+
+.twitIcon {
+    max-width: 20px;
+    height: auto;
+    padding-left: 5px;
+}
+
+.discIcon {
+    max-width: 30px;
+    height: auto;
+    padding-left: 5px;
+}
+
+.notesIcon {
+    max-width: 25px;
+    height: auto;
+    padding-left: 5px;
+}
+
+.editIcon {
+    max-width: 20px;
+    height: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.submit {
+    margin-right: 5px;
+}
+
+.dropDownDiv {
+    float: right;
+    padding-right: 10px;
+    padding-top: 5px;
+
+}
+
+.website {}
+
+.twitter {}
+
+.discord {}
+
+.note {
+    margin-top: 5px;
+}
+
+/* end form */
+
+.loginForm {
+    text-align: center;
+}
+
+.signUpForm {
+    text-align: center;
+}
+
+.aboutFieldset {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background-color: #fffada;
+}
+
+.abTwitterFieldset {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: none;
+}
+
+.aboutTwitter {
+    margin-top: 20px;
+    width: 50px;
+    height: auto;
+}
