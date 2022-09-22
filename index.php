@@ -89,7 +89,7 @@ endif;
             }
 
             // read all row from database table
-            $sql = "SELECT * FROM projects WHERE user_id = $_SESSION[user_id]";
+            $sql = "SELECT * FROM projects WHERE user_id = $_SESSION[user_id] ORDER BY date ASC";
             $result = $connection->query($sql);
 
             if (!$result) {
