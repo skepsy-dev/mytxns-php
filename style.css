@@ -121,6 +121,11 @@ button {
 }
 
 @media (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .toggle-button {
         display: flex;
     }
@@ -130,14 +135,8 @@ button {
     
     }
 
-    .navbar {
+    .navbar-links ul {      
         flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navbar-links ul {
-        
-         flex-direction: column;
         padding-top: 40px;
     }
 
