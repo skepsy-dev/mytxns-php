@@ -94,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     <title>MT | EDIT PROJECT</title>
     <link rel="icon" type="image/icon type" href="images/logos/mt-logo-blk.png">
     <link rel="stylesheet" type="text/css" href="style.css" crossorigin="anonymous">
+    <script src="js/navbar.js" defer></script>
 </head>
 
 <body>
