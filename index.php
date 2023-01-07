@@ -74,22 +74,22 @@ endif;
         <tbody>
             <?php
             //Get Heroku ClearDB connection information
-            // $cleardb_url = "mysql://b3260df89e9024:657e1282@us-cdbr-east-06.cleardb.net/heroku_17566dd1cdff3d3?reconnect=true";
-            // $cleardb_server = "us-cdbr-east-06.cleardb.net";
-            // $cleardb_username = "bdf0c388e3a321";
-            // $cleardb_password = "54873b63";
-            // $cleardb_db = "heroku_17566dd1cdff3d3";
-            // $active_group = 'default';
-            // $query_builder = TRUE;
+            $cleardb_url = "mysql://b3260df89e9024:657e1282@us-cdbr-east-06.cleardb.net/heroku_17566dd1cdff3d3?reconnect=true";
+            $cleardb_server = "us-cdbr-east-06.cleardb.net";
+            $cleardb_username = "bdf0c388e3a321";
+            $cleardb_password = "54873b63";
+            $cleardb_db = "heroku_50be3e0a2a05780";
+            $active_group = 'default';
+            $query_builder = TRUE;
             // Connect to DB
-            // $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+            $connection = new mysqli($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
             // Check connection
-            // if ($connection->connect_error) {
-            //     die("Connection failed: " . $connection->connect_error);
-            // }
+            if ($connection->connect_error) {
+                die("Connection failed: " . $connection->connect_error);
+            }
 
-            // session_start();
+           
 
             // read all row from database table
             $sql = "SELECT * FROM projects WHERE user_id = $_SESSION[user_id] ORDER BY date ASC";
