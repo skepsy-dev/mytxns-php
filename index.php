@@ -101,7 +101,7 @@ endif;
 
             // read data of each row
             while ($row = $result->fetch_assoc()) {
-                echo "<tr>
+                echo "<tr class='table_header'>
                                 <td>$row[date]</td>
                                 <td>$row[project_name]</td>
                                 <td>$row[status]</td>
