@@ -8,7 +8,7 @@ if (isset($_GET["id"])) {
     $cleardb_server = "us-cdbr-east-06.cleardb.net";
     $cleardb_username = "bdf0c388e3a321";
     $cleardb_password = "54873b63";
-    $cleardb_db = "heroku_17566dd1cdff3d3";
+    $cleardb_db = "heroku_50be3e0a2a05780";
     $active_group = 'default';
     $query_builder = TRUE;
     // Connect to DB
